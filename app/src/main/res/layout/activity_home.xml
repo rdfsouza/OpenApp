@@ -33,7 +33,7 @@
             android:id="@+id/Page1"
             android:layout_width="257dp"
             android:layout_height="111dp"
-            android:text="Searching for new helpers"
+            android:text=" Searching for new helpers"
             android:textColor="#000000"
             android:textSize="20dp">
 
