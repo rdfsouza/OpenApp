@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item1"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_messages"
+        android:title="Messages"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/ic_forum"
+        android:title="Forum"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item4"
+        android:icon="@drawable/ic_jornal"
+        android:title="Personal Jornal"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item5"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:title="Audio Jornal"
+        app:showAsAction="never" />
+
+    <item android:id ="@+id/item6"
+        android:icon="@drawable/ic_settings"
+        android:title="Settigns"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/item7"
+        android:icon="@drawable/ic_prefe"
+        android:title="Preferences"
+        app:showAsAction="never" />
+
+       <item android:id ="@+id/item8"
+           android:icon="@drawable/ic_settings"
+           android:title="Signout"
+           app:showAsAction="never"
+           />
+
+
+
+</menu>
