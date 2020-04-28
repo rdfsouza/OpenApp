@@ -31,6 +31,7 @@
         android:background="@color/colorUser"
         android:text="USER"
 
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +55,7 @@
         android:background="@color/colorHelper"
 
         android:text="HELPER"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -86,7 +88,7 @@
         android:layout_centerHorizontal="false"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
 
         android:text="For those who want to open up"
         android:textColor="#000000"
@@ -98,7 +100,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="360dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
@@ -106,31 +108,31 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="0dp"
         android:text="Choose your Profile"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif-light" />
+        app:fontFamily="sans-serif-black" />
 
     <TextView
         android:id="@+id/chooseProfile"
-        android:layout_width="wrap_content"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginEnd="1dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="47dp"
         android:text="Think for a moment about which profile best suits you"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="24sp" />
+        app:fontFamily="sans-serif-light" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -149,9 +151,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="61dp"
-        android:layout_marginLeft="61dp"
-        android:layout_marginBottom="7dp"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="8dp"
         android:text="Have already an account? Log in here"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
