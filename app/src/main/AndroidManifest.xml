@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.openapp3">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Forum.ForumMessages"></activity>
+        <activity android:name=".Forum.NewForum" />
+        <activity android:name=".Forum.AllForum" />
+        <activity android:name=".Messages.AllMessages" />
+        <activity android:name=".Helper.ChatHelper" />
+        <activity android:name=".Chats.ChatUser" />
+        <activity android:name=".Helper.HelperAboutMe" />
+        <activity android:name=".User.MainJornal" />
+        <activity android:name=".User.Jornal" />
+        <activity android:name=".User.EditPreferences" />
+        <activity android:name=".User.Preferences" />
+        <activity android:name=".User.EditSettings" />
+        <activity android:name=".User.Settigns" />
+        <activity android:name=".Helper.HomeHelper" />
+        <activity android:name=".User.Home" />
+        <activity android:name=".Helper.RegisterHelper" />
+        <activity android:name=".User.RegisterUser" />
+        <activity android:name=".Register" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

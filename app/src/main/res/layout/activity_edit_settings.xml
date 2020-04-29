@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User.EditSettings">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="117dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_photo1" />
+
+    <EditText
+        android:id="@+id/NewName"
+        android:layout_width="145dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/NewGender"
+        android:layout_width="330dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="104dp"
+        android:hint="Genre:Male/Female/Others"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewName" />
+
+    <EditText
+        android:id="@+id/NewAge"
+        android:layout_width="330dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:hint="Age"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewGender" />
+
+    <EditText
+        android:id="@+id/NewLocation"
+        android:layout_width="330dp"
+        android:layout_height="47dp"
+        android:hint="Location:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewAge"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <EditText
+        android:id="@+id/NewOcupation"
+        android:layout_width="330dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:hint="Ocupation:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewLocation" />
+
+    <EditText
+        android:id="@+id/NewEducation"
+        android:layout_width="330dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:hint="Education:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewOcupation" />
+
+    <EditText
+        android:id="@+id/NewAboutMe"
+        android:layout_width="334dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="8dp"
+        android:hint="AboutMe:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewEducation" />
+
+    <Button
+        android:id="@+id/Update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Save Updates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewAboutMe" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

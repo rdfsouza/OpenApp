@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register"
+    android:background="#FFEE76">
+    <!-- background color-->
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView2"
+
+
+        android:layout_marginStart="30.5dp"
+        android:layout_marginLeft="30.5dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="30.5dp"
+        android:layout_marginRight="30.5dp"
+
+        android:background="@drawable/custom_buttom"
+        android:text="NEW USER"
+        android:textColor="#000000"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <!--  android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" -->
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView3"
+
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginStart="30.5dp"
+        android:layout_marginLeft="30.5dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="30.5dp"
+        android:layout_marginRight="30.5dp"
+
+        android:background="@drawable/custom_buttomgreen"
+
+        android:text="NEW HELPER"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="56dp"
+
+        android:layout_marginRight="56dp"
+        android:text="For those who want to open up"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:fontFamily="@font/nunito_extralight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="56dp"
+
+        android:layout_marginRight="56dp"
+        android:text="For those who want to listen and help"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:fontFamily="@font/nunito_extralight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:text="Choose your Profile"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-light" />
+
+
+
+</RelativeLayout>
