@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">OpenApp</string>
+    <string name="or">OR</string>
+    <string name="sign">Do not have an account yet? Sign here</string>
+    <string name="sometimes_the_worst_place_to_be_is_inside_your_head">Sometimes the worst place to be is inside your head</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="username">username</string>
 </resources>

@@ -6,27 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".User.MainJornal">
 
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="117dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_photo1" />
 
-
     <TextView
         android:id="@+id/myTexts"
         android:layout_width="157dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="TextView"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintHorizontal_bias="0.429"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,11 +34,11 @@
         android:id="@+id/Jornal1"
         android:layout_width="321dp"
         android:layout_height="151dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="150dp"
         android:text="No Diary Entry yet"
-        android:textSize="20dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Page2" />
 
@@ -54,42 +54,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Jornal1" />
 
+
     <Button
         android:id="@+id/AddRecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorUser"
         android:text="ADD NEW RECORD"
-        android:textSize="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Date" />
 
     <TextView
         android:id="@+id/Page2"
-        android:layout_width="304dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorUSerDark"
         android:gravity="center"
         android:text="Day Book"
-        android:textColor="#000000"
-        android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.602"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myTexts" />
 
-
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="36dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@drawable/ic_jornal" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Check out your last recordes"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Page2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
