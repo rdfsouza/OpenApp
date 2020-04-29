@@ -70,12 +70,12 @@ public class RegisterUser extends AppCompatActivity {
 
                         Boolean insert = db.insert(s1, s2, User, s4, s5, s6, s7,s8,s9,s10);
 
-                        Toast.makeText(getApplicationContext(), "Registrated Sucessfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
 
 
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "Password dont match", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Password doesn't match", Toast.LENGTH_SHORT).show();
 
 
                     }
