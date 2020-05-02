@@ -1,4 +1,4 @@
-package com.example.openapp3.Chats;
+package com.example.openapp3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,45 +15,40 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.openapp3.DataBases.DataBaseMessages;
-import com.example.openapp3.Forum.AllForum;
-import com.example.openapp3.MainActivity;
+import com.example.openapp3.Chats.ChatAdapter;
+import com.example.openapp3.Chats.ChatsStyle;
+import com.example.openapp3.DataBases.DataBaseForum;
+import com.example.openapp3.Forum.ForumMessages;
+import com.example.openapp3.Helper.HomeHelper;
 import com.example.openapp3.Messages.AllMessages;
-import com.example.openapp3.R;
-import com.example.openapp3.User.Home;
-import com.example.openapp3.User.MainJornal;
-import com.example.openapp3.User.Preferences;
-import com.example.openapp3.User.Settigns;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ChatUser extends AppCompatActivity {
-
+public class ForumMessageHelper extends AppCompatActivity {
     RecyclerView RV;
     RecyclerView.Adapter RVA;
     RecyclerView.LayoutManager RVM;
 
+    String value;
+    String Type;
+    EditText e1;
+    DataBaseForum db;
+    String time;
+    String Name;
 
-String value;
-String eHelper;
-EditText e1;
-DataBaseMessages db;
-String time;
-String Name;
+    ArrayList<ChatsStyle> CS = new ArrayList<>();
 
-ArrayList<ChatsStyle> CS = new ArrayList<>();
-
-ImageButton b1;
+    ImageButton b1;
 
     Calendar calendar = Calendar.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_user);
-
-        db= new DataBaseMessages(this);
+        setContentView(R.layout.activity_forum_message_helper);
+        db= new DataBaseForum(this);
 
         Bundle bundle1 = getIntent().getExtras();
         value = bundle1.getString("email");
@@ -62,13 +57,10 @@ ImageButton b1;
         Name = bundle1.getString("Name");
 
         Bundle bundle = getIntent().getExtras();
-        eHelper = bundle.getString("eHelper");
+        Type = bundle.getString("Type");
 
         e1 = (EditText) findViewById(R.id.ChatText);
         b1 =(ImageButton) findViewById(R.id.SendChat);
-
-
-        Toast.makeText(getApplicationContext(), eHelper, Toast.LENGTH_SHORT).show();
 
 
         int a = calendar.get(Calendar.AM_PM);
@@ -79,8 +71,6 @@ ImageButton b1;
             time = calendar.get(Calendar.HOUR)+ ":"+calendar.get(Calendar.MINUTE)+"PM";
         }
 
-
-
         getMessages();
 
     }
@@ -88,7 +78,7 @@ ImageButton b1;
     public void getMessages(){
 
 
-        Cursor cursor = db.AllMessages(Name,eHelper);
+        Cursor cursor = db.AllTopic(Type);
 
         if (cursor.getCount()==0){
             Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
@@ -100,29 +90,16 @@ ImageButton b1;
                 ArrayList<String> NameU = new ArrayList<>();
                 NameU.add(cursor.getString(1));
 
-                ArrayList<String> NameH = new ArrayList<>();
-                NameH.add(cursor.getString(3));
-
                 ArrayList<String> TimeU = new ArrayList<>();
                 TimeU.add(cursor.getString(2));
 
-                ArrayList<String> TimeH = new ArrayList<>();
-                TimeH.add(cursor.getString(4));
-
                 ArrayList<String> ChatU = new ArrayList<>();
-                ChatU.add(cursor.getString(5));
-
-                ArrayList<String> ChatH = new ArrayList<>();
-                ChatH.add(cursor.getString(6));
+                ChatU.add(cursor.getString(3));
 
                 ArrayList<String> Type = new ArrayList<>();
-                Type.add(cursor.getString(7));
-
-
+                Type.add(cursor.getString(4));
 
                 CS.add(new ChatsStyle(R.drawable.ic_photo, ChatU.get(0), TimeU.get(0), NameU.get(0)));
-
-
 
 
 
@@ -146,20 +123,19 @@ ImageButton b1;
             public void onClick(View v) {
 
                 String Chat = e1.getText().toString();
-                Boolean insert = db.insert(Name, time, eHelper, "", Chat, "","USER");
-                Intent i = new Intent(ChatUser.this, ChatUser.class);
+                Boolean insert = db.insert(Name, time, Chat, Type);
+                Intent i = new Intent(ForumMessageHelper.this, ForumMessageHelper.class);
                 i.putExtra("Name", Name);
-                i.putExtra("eHelper", eHelper);
+                i.putExtra("Type", Type);
                 i.putExtra("email",value);
                 startActivity(i);
 
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sandwich, menu);
+        getMenuInflater().inflate(R.menu.helper, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -170,56 +146,35 @@ ImageButton b1;
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ChatUser.this, Home.class);
+            Intent i = new Intent(ForumMessageHelper.this, HomeHelper.class);
             i.putExtra("email", value);
             startActivity(i);
         }
 
         if (id == R.id.item2) {
-            Intent i = new Intent(ChatUser.this, AllMessages.class);
+            Intent i = new Intent(ForumMessageHelper.this, AllMessagesHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
             startActivity(i);
         }
 
         if (id == R.id.item3) {
-            Intent i = new Intent(ChatUser.this, AllForum.class);
+            Intent i = new Intent(ForumMessageHelper.this, AllForumHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
             startActivity(i);
         }
 
-
-
-
-        if (id == R.id.item4) {
-            Intent i = new Intent(ChatUser.this, MainJornal.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item5) {
-            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
-
-        }
-
         if (id == R.id.item6) {
-            Intent i = new Intent(ChatUser.this, Settigns.class);
+            Intent i = new Intent(ForumMessageHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
         }
 
-        if (id == R.id.item7) {
-            Intent i = new Intent(ChatUser.this, Preferences.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
         if (id == R.id.item8) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ForumMessageHelper.this, MainActivity.class);
             startActivity(i);
         }
 

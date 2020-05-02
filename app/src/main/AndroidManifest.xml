@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.openapp3">
 
     <application
-        android:debuggable="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="HardcodedDebugMode">
-        <activity android:name=".Helper.HelperAboutMe"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".ChatUserHelper"></activity>
+        <activity android:name=".ForumMessageHelper" />
+        <activity android:name=".AllForumHelper" />
+        <activity android:name=".AllMessagesHelper" />
+        <activity android:name=".editSettingsHelper" />
+        <activity android:name=".SettingsHelper" />
+        <activity android:name=".Forum.ForumMessages" />
+        <activity android:name=".Forum.NewForum" />
+        <activity android:name=".Forum.AllForum" />
+        <activity android:name=".Messages.AllMessages" />
+        <activity android:name=".Helper.ChatHelper" />
+        <activity android:name=".Chats.ChatUser" />
+        <activity android:name=".Helper.HelperAboutMe" />
         <activity android:name=".User.MainJornal" />
         <activity android:name=".User.Jornal" />
         <activity android:name=".User.EditPreferences" />

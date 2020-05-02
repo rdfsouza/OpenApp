@@ -9,12 +9,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.openapp3.Forum.AllForum;
+import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.DataBases.DataBaseHelper;
 import com.example.openapp3.DataBases.DataBasePreference;
 import com.example.openapp3.DataBases.DataBaseProfile;
@@ -32,11 +33,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
     DataBaseHelper dbH;
 
     ArrayList<String> data;
-    ArrayAdapter adapter;
+    ArrayList<String> eHelper;
 
-    String value,Name, PrefG,PrefA,PrefL,HelpAboutMe,HelpAboutMe1,HelpAboutMe2;
+    String value,Name, PrefG,PrefA,PrefL,HelpAboutMe,HelpAboutMe1,eHelper1,eHelper2;
 
-int myClickCount;
+    int myClickCount;
 
     ViewFlipper viewFlipper;
     Button yes,no;
@@ -101,6 +102,7 @@ public void getHelpers(){
 
     dbH = new DataBaseHelper(this);
     data = new ArrayList<>();
+    eHelper = new ArrayList<>();
 
     Cursor cursor2 = dbH.AllData(PrefG,PrefA,PrefL);
 
@@ -110,14 +112,14 @@ public void getHelpers(){
     }else {
 
         while(cursor2.moveToNext()) {
+            eHelper.add(cursor2.getString(5));
             data.add(cursor2.getString(6));
 
         }
          HelpAboutMe = data.get(0);
-
+         eHelper1 = eHelper.get(0);
          HelpAboutMe1 = data.get(1);
-
-
+         eHelper2 = eHelper.get(1);
 
 
         TextView displayTextView3 = (TextView) findViewById(R.id.Page1);
@@ -148,20 +150,25 @@ public void getHelpers(){
         if (id == R.id.item1) {
             Intent i = new Intent(Home.this, Home.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
-
 
         if (id == R.id.item2) {
-            Intent i = new Intent(Home.this, Home.class);
+            Intent i = new Intent(Home.this, AllMessages.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
+
         if (id == R.id.item3) {
-            Intent i = new Intent(Home.this, Home.class);
+            Intent i = new Intent(Home.this, AllForum.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
+
+
 
 
         if (id == R.id.item4) {
@@ -205,15 +212,22 @@ public void getHelpers(){
     @Override
     public void onClick(View v) {
         if (v == yes) {
+
             if( myClickCount==0) {
                 String SendAbout = HelpAboutMe;
                 Intent i = new Intent(Home.this, HelperAboutMe.class);
                 i.putExtra("AboutMe", SendAbout);
+                i.putExtra("email", value);
+                i.putExtra("Name", Name);
+                i.putExtra("eHelper", eHelper1);
                 startActivity(i);
+
             } else {
                 String SendAbout1 = HelpAboutMe1;
                 Intent i = new Intent(Home.this, HelperAboutMe.class);
                 i.putExtra("AboutMe", SendAbout1);
+                i.putExtra("Name", Name);
+                i.putExtra("eHelper", eHelper2);
                 startActivity(i);
             }
 
