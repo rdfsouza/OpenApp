@@ -63,14 +63,14 @@ public class Settigns extends AppCompatActivity {
                 TextView displayTextView7 = (TextView) findViewById(R.id.AboutMe);
 
 
-                displayTextView.setText("Name: " + Name);
-                displayTextView1.setText("Genre: " + Genre);
+                displayTextView.setText(Name);
+                displayTextView1.setText("Gender: " + Genre);
                 displayTextView2.setText("Age: " + Age);
-                displayTextView3.setText("AcountType: " + AcountType);
-                displayTextView4.setText("Ocupation: " + Ocupation);
+                displayTextView3.setText("Account Type: " + AcountType);
+                displayTextView4.setText("Occupation: " + Ocupation);
                 displayTextView5.setText("Education: " + Education);
                 displayTextView6.setText("Location: " + Location);
-                displayTextView7.setText("AboutMe: " + AboutMe);
+                displayTextView7.setText("About Me: " + AboutMe);
             }
 
         }
@@ -129,7 +129,7 @@ public class Settigns extends AppCompatActivity {
         }
 
         if (id == R.id.item5) {
-            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Page In Maintenance", Toast.LENGTH_SHORT).show();
 
         }
 

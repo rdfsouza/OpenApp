@@ -8,23 +8,51 @@
     tools:context=".User.Home">
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ]]>
 
     <ViewFlipper
         android:id="@+id/flipper"
-        android:layout_width="wrap_content"
-        android:layout_height="196dp"
-        android:layout_below="@+id/textView4"
+        android:layout_width="341dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="5dp"
         android:background="#ffffff"
+        android:fadingEdge="horizontal"
         android:textColor="#000000"
         android:textSize="20dp">
 
@@ -60,85 +88,96 @@
 
     <Button
         android:id="@+id/no"
-        android:layout_width="94dp"
-        android:layout_height="68dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/flipper"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/xbutton" />
 
     <Button
         android:id="@+id/yes"
-        android:layout_width="94dp"
-        android:layout_height="68dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/flipper"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginRight="58dp"
         android:background="@drawable/checkbutton" />
+
+    <TextView
+        android:id="@+id/chatlogo"
+        android:layout_width="74dp"
+        android:layout_height="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:background="@drawable/chatlogo" />
 
     <TextView
         android:id="@+id/myTexts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="89dp"
-        android:layout_marginRight="89dp"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:text="TextView"
-        android:textSize="20dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="21dp"
+        android:layout_toEndOf="@+id/chatlogo"
+        android:layout_toRightOf="@+id/chatlogo"
+        android:text="User Name"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:visibility="visible"
         app:fontFamily="sans-serif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="117dp"
-        android:layout_height="111dp"
+        android:layout_width="99dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="155dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginRight="155dp"
         app:layout_constraintEnd_toStartOf="@+id/myTexts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_photo1" />
+        app:srcCompat="@drawable/profile_avatar" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/myTexts"
 
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/myTexts"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:text=" Let's share. Here are people who match your preferences."
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_toEndOf="@+id/chatlogo"
+        android:layout_toRightOf="@+id/chatlogo"
+        android:text="Let's share. Here are people who match your preferences."
         android:textColor="#000000"
-        android:textSize="20dp"
+        android:textSize="19dp"
         app:fontFamily="sans-serif-condensed-light" />
 
 

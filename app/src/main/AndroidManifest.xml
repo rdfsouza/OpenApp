@@ -29,11 +29,16 @@
         <activity android:name=".User.EditSettings" />
         <activity android:name=".User.Settigns" />
         <activity android:name=".Helper.HomeHelper" />
-        <activity android:name=".User.Home" />
-        <activity android:name=".Helper.RegisterHelper" />
-        <activity android:name=".User.RegisterUser" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".User.Home"
+            />
+        <activity android:name=".Helper.RegisterHelper"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".User.RegisterUser"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Register"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

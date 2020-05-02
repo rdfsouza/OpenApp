@@ -14,25 +14,37 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" -->
 
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="358dp"
+        android:layout_height="203dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:background="@drawable/logo_png" />
+
     <Button
         android:id="@+id/button"
+        android:background="@drawable/custom_buttom"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_below="@+id/textView2"
-
-
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30.5dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30.5dp"
-
         android:layout_marginRight="30.5dp"
-        android:background="@color/colorUser"
         android:text="USER"
-
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textColor="#ffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -43,20 +55,16 @@
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_below="@+id/textView3"
-
         android:layout_centerHorizontal="true"
-
         android:layout_marginStart="30.5dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="30.5dp"
         android:layout_marginRight="30.5dp"
-
-        android:background="@color/colorHelper"
-
+        android:background="@drawable/custom_buttomgreen"
         android:text="HELPER"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -83,13 +91,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
 
+        android:layout_below="@+id/chooseProfile"
         android:layout_centerHorizontal="false"
         android:layout_marginStart="35dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="120dp"
 
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
         android:text="For those who want to open up"
         android:textColor="#000000"
         android:textSize="14sp"
@@ -100,63 +108,42 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="379dp"
+        android:layout_width="281dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="70dp"
         android:text="Choose your Profile"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:fontFamily="sans-serif-black" />
+
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintTop_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/chooseProfile"
-        android:layout_width="330dp"
+        android:layout_width="279dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="41dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="72dp"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="14dp"
         android:text="Think for a moment about which profile best suits you"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:fontFamily="sans-serif-light" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorBackground"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
-    <TextView
-        android:id="@+id/loginLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="false"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="8dp"
-        android:text="Have already an account? Log in here"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
 
 </RelativeLayout>

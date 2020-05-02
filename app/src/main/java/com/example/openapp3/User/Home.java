@@ -72,7 +72,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
                 while(cursor.moveToNext()){
                     Name = cursor.getString(5).toString();
                     TextView displayTextView = (TextView) findViewById(R.id.myTexts);
-                    displayTextView.setText("Welcome " + Name);
+                    displayTextView.setText(Name);
                     GetPref();
                 }
             }
