@@ -1,4 +1,4 @@
-package com.example.openapp3.Chats;
+package com.example.openapp3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,44 +15,37 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.openapp3.Chats.ChatAdapter;
+import com.example.openapp3.Chats.ChatUser;
+import com.example.openapp3.Chats.ChatsStyle;
 import com.example.openapp3.DataBases.DataBaseMessages;
-import com.example.openapp3.Forum.AllForum;
-import com.example.openapp3.MainActivity;
-import com.example.openapp3.Messages.AllMessages;
-import com.example.openapp3.R;
-import com.example.openapp3.User.Home;
-import com.example.openapp3.User.MainJornal;
-import com.example.openapp3.User.Preferences;
-import com.example.openapp3.User.Settigns;
+import com.example.openapp3.Helper.HomeHelper;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ChatUser extends AppCompatActivity {
-
+public class ChatUserHelper extends AppCompatActivity {
     RecyclerView RV;
     RecyclerView.Adapter RVA;
     RecyclerView.LayoutManager RVM;
 
 
-String value;
-String eHelper;
-EditText e1;
-DataBaseMessages db;
-String time;
-String Name;
+    String value;
+    String eHelper;
+    EditText e1;
+    DataBaseMessages db;
+    String time;
+    String Name;
 
-ArrayList<ChatsStyle> CS = new ArrayList<>();
+    ArrayList<ChatsStyle> CS = new ArrayList<>();
 
-ImageButton b1;
+    ImageButton b1;
 
     Calendar calendar = Calendar.getInstance();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_user);
-
+        setContentView(R.layout.activity_chat_user_helper);
         db= new DataBaseMessages(this);
 
         Bundle bundle1 = getIntent().getExtras();
@@ -147,7 +140,7 @@ ImageButton b1;
 
                 String Chat = e1.getText().toString();
                 Boolean insert = db.insert(Name, time, eHelper, "", Chat, "","USER");
-                Intent i = new Intent(ChatUser.this, ChatUser.class);
+                Intent i = new Intent(ChatUserHelper.this, ChatUserHelper.class);
                 i.putExtra("Name", Name);
                 i.putExtra("eHelper", eHelper);
                 i.putExtra("email",value);
@@ -156,10 +149,9 @@ ImageButton b1;
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sandwich, menu);
+        getMenuInflater().inflate(R.menu.helper, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -170,56 +162,35 @@ ImageButton b1;
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ChatUser.this, Home.class);
+            Intent i = new Intent(ChatUserHelper.this, HomeHelper.class);
             i.putExtra("email", value);
             startActivity(i);
         }
 
         if (id == R.id.item2) {
-            Intent i = new Intent(ChatUser.this, AllMessages.class);
+            Intent i = new Intent(ChatUserHelper.this, AllMessagesHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
             startActivity(i);
         }
 
         if (id == R.id.item3) {
-            Intent i = new Intent(ChatUser.this, AllForum.class);
+            Intent i = new Intent(ChatUserHelper.this, AllForumHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
             startActivity(i);
         }
 
-
-
-
-        if (id == R.id.item4) {
-            Intent i = new Intent(ChatUser.this, MainJornal.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item5) {
-            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
-
-        }
-
         if (id == R.id.item6) {
-            Intent i = new Intent(ChatUser.this, Settigns.class);
+            Intent i = new Intent(ChatUserHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
         }
 
-        if (id == R.id.item7) {
-            Intent i = new Intent(ChatUser.this, Preferences.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
         if (id == R.id.item8) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ChatUserHelper.this, MainActivity.class);
             startActivity(i);
         }
 

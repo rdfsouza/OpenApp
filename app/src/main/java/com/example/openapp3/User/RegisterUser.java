@@ -70,8 +70,14 @@ public class RegisterUser extends AppCompatActivity {
 
                         Boolean insert = db.insert(s1, s2, User, s4, s5, s6, s7,s8,s9,s10);
 
+<<<<<<< HEAD
+                        Toast.makeText(getApplicationContext(), "Registrated Sucessfully", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(RegisterUser.this, MainActivity.class);
+                        startActivity(i);
+=======
                         Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
 
+>>>>>>> 8cafb567fcbb190d4498f984a6cc0abaf9f941cc
 
                     } else {
 

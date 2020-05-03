@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBaseHelper;
 import com.example.openapp3.DataBases.DataBaseProfile;
+import com.example.openapp3.Helper.HomeHelper;
 import com.example.openapp3.User.Home;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
             }if(checkemailPass2==true){
                 Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
-                Intent j = new Intent(MainActivity.this, Home.class);
+                Intent j = new Intent(MainActivity.this, HomeHelper.class);
                 j.putExtra("email",Email);
                 startActivity(j);
 

@@ -51,10 +51,36 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Cursor AllData(String Gender,String Age,String Location){
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from Helpers where Gender =? or Age=? or Location=? ", new String[] {Gender,Age,Location});
+        Cursor cursor = db.rawQuery("select * from Helpers where Gender =? ", new String[] {Gender});
 
         return cursor;
     }
+    public Cursor AllData2(String email){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Helpers where email =? ", new String[] {email});
+
+        return cursor;
+    }
+
+
+    public Boolean Update(String email,String Gender,String Age, String Location, String Name, String AboutMe){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", email);
+        contentValues.put("Gender", Gender);
+        contentValues.put("Age", Age);
+        contentValues.put("Location", Location);
+        contentValues.put("Name", Name);
+        contentValues.put("AboutMe", AboutMe);
+        db.update("Helpers" ,contentValues, "email = ?", new String[] {email} );
+
+        return true;
+
+
+    }
+
 
 
 }

@@ -101,6 +101,7 @@ public class Preferences extends AppCompatActivity {
         if (id == R.id.item1) {
             Intent i = new Intent(Preferences.this, Home.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 

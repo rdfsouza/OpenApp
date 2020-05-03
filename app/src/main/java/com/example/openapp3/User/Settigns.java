@@ -81,8 +81,8 @@ public class Settigns extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(Settigns.this,EditSettings.class);
-
-                i.putExtra("email",value);
+                i.putExtra("email", value);
+                i.putExtra("name", Name);
                 startActivity(i);
             }
         });
@@ -104,6 +104,7 @@ public class Settigns extends AppCompatActivity {
         if (id == R.id.item1) {
             Intent i = new Intent(Settigns.this, Home.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 

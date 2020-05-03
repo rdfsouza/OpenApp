@@ -1,4 +1,4 @@
-package com.example.openapp3.Messages;
+package com.example.openapp3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,34 +14,32 @@ import android.widget.Toast;
 
 import com.example.openapp3.Chats.ChatUser;
 import com.example.openapp3.DataBases.DataBaseMessages;
-import com.example.openapp3.Forum.AllForum;
-import com.example.openapp3.MainActivity;
-import com.example.openapp3.R;
-import com.example.openapp3.User.Home;
-import com.example.openapp3.User.MainJornal;
-import com.example.openapp3.User.Preferences;
-import com.example.openapp3.User.Settigns;
+import com.example.openapp3.Helper.HomeHelper;
+import com.example.openapp3.Messages.AllMessages;
+import com.example.openapp3.Messages.AllMessagesAdapter;
+import com.example.openapp3.Messages.AllMessagesStyle;
 
 import java.util.ArrayList;
 
-public class AllMessages extends AppCompatActivity {
-    RecyclerView RV;
-    AllMessagesAdapter   RVA;
-    RecyclerView.LayoutManager RVM;
+public class AllMessagesHelper extends AppCompatActivity {
 
+
+    RecyclerView RV;
+    AllMessagesAdapter RVA;
+    RecyclerView.LayoutManager RVM;
 
     String value;
     String eHelper;
 
     DataBaseMessages db;
-
     String Name;
     ArrayList<AllMessagesStyle> AM = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_messages);
+        setContentView(R.layout.activity_all_messages_helper);
+
         db= new DataBaseMessages(this);
 
         Bundle bundle1 = getIntent().getExtras();
@@ -60,14 +58,13 @@ public class AllMessages extends AppCompatActivity {
 
 
     public void getMessages() {
-        Toast.makeText(getApplicationContext(), eHelper, Toast.LENGTH_SHORT).show();
-        Cursor cursor = db.AllHelper(Name);
+        Toast.makeText(getApplicationContext(), Name, Toast.LENGTH_SHORT).show();
+        Cursor cursor = db.AllHelper2(Name);
 
         if (cursor.getCount() == 0) {
             Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
 
         } else {
-
             while (cursor.moveToNext()) {
 
                 ArrayList<String> NameU = new ArrayList<>();
@@ -90,7 +87,7 @@ public class AllMessages extends AppCompatActivity {
 
                 ArrayList<String> Type = new ArrayList<>();
                 Type.add(cursor.getString(7));
-                AM.add(new AllMessagesStyle(R.drawable.ic_photo, TimeU.get(0), NameH.get(0)));
+                AM.add(new AllMessagesStyle(R.drawable.ic_photo, TimeU.get(0), NameU.get(0)));
 
             }
 
@@ -108,7 +105,7 @@ public class AllMessages extends AppCompatActivity {
                 public void onItemClick(int position) {
                     click(position);
 
-                    Intent i = new Intent(AllMessages.this, ChatUser.class);
+                    Intent i = new Intent(AllMessagesHelper.this, ChatUserHelper.class);
                     i.putExtra("Name", Name);
                     i.putExtra("email", value);
                     i.putExtra("eHelper", eHelper);
@@ -118,12 +115,11 @@ public class AllMessages extends AppCompatActivity {
             });
 
         }
-
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sandwich, menu);
+        getMenuInflater().inflate(R.menu.helper, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -134,62 +130,39 @@ public class AllMessages extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(AllMessages.this, Home.class);
+            Intent i = new Intent(AllMessagesHelper.this, HomeHelper.class);
             i.putExtra("email", value);
             startActivity(i);
         }
 
         if (id == R.id.item2) {
-            Intent i = new Intent(AllMessages.this, AllMessages.class);
+            Intent i = new Intent(AllMessagesHelper.this, AllMessagesHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
             startActivity(i);
         }
 
         if (id == R.id.item3) {
-            Intent i = new Intent(AllMessages.this, AllForum.class);
+            Intent i = new Intent(AllMessagesHelper.this, AllForumHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
             startActivity(i);
         }
 
-
-
-
-        if (id == R.id.item4) {
-            Intent i = new Intent(AllMessages.this, MainJornal.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item5) {
-            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
-
-        }
-
         if (id == R.id.item6) {
-            Intent i = new Intent(AllMessages.this, Settigns.class);
+            Intent i = new Intent(AllMessagesHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
         }
 
-        if (id == R.id.item7) {
-            Intent i = new Intent(AllMessages.this, Preferences.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
         if (id == R.id.item8) {
-            Intent i = new Intent(AllMessages.this, MainActivity.class);
+            Intent i = new Intent(AllMessagesHelper.this, MainActivity.class);
             startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }
-
-
-

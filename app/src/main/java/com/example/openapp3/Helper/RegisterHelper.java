@@ -13,6 +13,7 @@ import com.example.openapp3.DataBases.DataBaseHelper;
 import com.example.openapp3.DataBases.DataBaseProfile;
 import com.example.openapp3.MainActivity;
 import com.example.openapp3.R;
+import com.example.openapp3.User.RegisterUser;
 
 public class RegisterHelper extends AppCompatActivity {
 
@@ -68,10 +69,11 @@ public class RegisterHelper extends AppCompatActivity {
                 } else {
                     if (s2.equals(s3)) {
 
-                        Boolean insert = db.insert(s1, s2, s4, s5, s6,s7,s8);
+                        Boolean insert = db.insert(s1, s2, s4, s5, s7,s6,s8);
 
                         Toast.makeText(getApplicationContext(), "Registrated Sucessfully", Toast.LENGTH_SHORT).show();
-
+                        Intent i = new Intent(RegisterHelper.this, MainActivity.class);
+                        startActivity(i);
 
                     } else {
 
