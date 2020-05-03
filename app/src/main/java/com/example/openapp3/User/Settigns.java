@@ -64,13 +64,13 @@ public class Settigns extends AppCompatActivity {
 
 
                 displayTextView.setText(Name);
-                displayTextView1.setText("Gender: " + Genre);
-                displayTextView2.setText("Age: " + Age);
+                displayTextView1.setText(Genre);
+                displayTextView2.setText(Age);
                 displayTextView3.setText("Account Type: " + AcountType);
-                displayTextView4.setText("Occupation: " + Ocupation);
+                displayTextView4.setText("Profession " + Ocupation);
                 displayTextView5.setText("Education: " + Education);
                 displayTextView6.setText("Location: " + Location);
-                displayTextView7.setText("About Me: " + AboutMe);
+                displayTextView7.setText(AboutMe);
             }
 
         }
