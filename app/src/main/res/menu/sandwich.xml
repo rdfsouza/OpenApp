@@ -19,27 +19,27 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/item4"
-        android:icon="@drawable/ic_jornal"
-        android:title="Personal Jornal"
+        android:icon="@drawable/ic_messages"
+        android:title="Jornal"
         app:showAsAction="never" />
     <item
         android:id="@+id/item5"
-        android:icon="@android:drawable/ic_btn_speak_now"
-        android:title="Audio Jornal"
+        android:icon="@drawable/ic_messages"
+        android:title="Voice Jornal"
         app:showAsAction="never" />
 
     <item android:id ="@+id/item6"
         android:icon="@drawable/ic_settings"
-        android:title="Settigns"
+        android:title="Profile"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/item7"
-        android:icon="@drawable/ic_prefe"
+    <item android:id ="@+id/item7"
+        android:icon="@drawable/ic_settings"
         android:title="Preferences"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        />
 
-       <item android:id ="@+id/item8"
+    <item android:id ="@+id/item8"
            android:icon="@drawable/ic_settings"
            android:title="Signout"
            app:showAsAction="never"

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OpenApp</string>
+    <string name="phrase_login">""Do not take decisions based on temporary thoughts""</string>
+    <string name="username">username</string>
 </resources>

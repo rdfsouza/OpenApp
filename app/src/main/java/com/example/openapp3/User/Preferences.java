@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBasePreference;
+import com.example.openapp3.Forum.AllForum;
 import com.example.openapp3.MainActivity;
+import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.R;
 
 public class Preferences extends AppCompatActivity {
@@ -71,7 +73,7 @@ public class Preferences extends AppCompatActivity {
         }
 
         TextView displayTextView4 = (TextView) findViewById(R.id.myTexts);
-        displayTextView4.setText("Name: " + Name);
+        displayTextView4.setText(Name);
 
         b1 = (Button)findViewById(R.id.UpdatePref);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +87,7 @@ public class Preferences extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,21 +104,23 @@ public class Preferences extends AppCompatActivity {
         if (id == R.id.item1) {
             Intent i = new Intent(Preferences.this, Home.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
-
 
         if (id == R.id.item2) {
-            Intent i = new Intent(Preferences.this, Home.class);
+            Intent i = new Intent(Preferences.this, AllMessages.class);
             i.putExtra("email", value);
-            startActivity(i);
-        }
-        if (id == R.id.item3) {
-            Intent i = new Intent(Preferences.this, Home.class);
-            i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
+        if (id == R.id.item3) {
+            Intent i = new Intent(Preferences.this, AllForum.class);
+            i.putExtra("email", value);
+            i.putExtra("Name", Name);
+            startActivity(i);
+        }
 
         if (id == R.id.item4) {
             Intent i = new Intent(Preferences.this, MainJornal.class);
@@ -137,7 +142,10 @@ public class Preferences extends AppCompatActivity {
         }
 
         if (id == R.id.item7) {
-            Toast.makeText(getApplicationContext(), "Already On this page", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(Preferences.this, Preferences.class);
+            i.putExtra("email", value);
+            i.putExtra("name", Name);
+            startActivity(i);
         }
 
         if (id == R.id.item8) {
@@ -147,7 +155,6 @@ public class Preferences extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

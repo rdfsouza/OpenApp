@@ -19,7 +19,12 @@ import com.example.openapp3.Chats.ChatAdapter;
 import com.example.openapp3.Chats.ChatsStyle;
 import com.example.openapp3.DataBases.DataBaseForum;
 import com.example.openapp3.MainActivity;
+import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.R;
+import com.example.openapp3.User.Home;
+import com.example.openapp3.User.MainJornal;
+import com.example.openapp3.User.Preferences;
+import com.example.openapp3.User.Settigns;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -134,6 +139,7 @@ public class ForumMessages extends AppCompatActivity {
         });
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.sandwich, menu);
@@ -147,26 +153,28 @@ public class ForumMessages extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ForumMessages.this, MainActivity.class);
+            Intent i = new Intent(ForumMessages.this, Home.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
-
 
         if (id == R.id.item2) {
-            Intent i = new Intent(ForumMessages.this, MainActivity.class);
+            Intent i = new Intent(ForumMessages.this, AllMessages.class);
             i.putExtra("email", value);
-            startActivity(i);
-        }
-        if (id == R.id.item3) {
-            Intent i = new Intent(ForumMessages.this, MainActivity.class);
-            i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
+        if (id == R.id.item3) {
+            Intent i = new Intent(ForumMessages.this, AllForum.class);
+            i.putExtra("email", value);
+            i.putExtra("Name", Name);
+            startActivity(i);
+        }
 
         if (id == R.id.item4) {
-            Intent i = new Intent(ForumMessages.this, MainActivity.class);
+            Intent i = new Intent(ForumMessages.this, MainJornal.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
@@ -178,14 +186,14 @@ public class ForumMessages extends AppCompatActivity {
         }
 
         if (id == R.id.item6) {
-            Intent i = new Intent(ForumMessages.this, MainActivity.class);
+            Intent i = new Intent(ForumMessages.this, Settigns.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
         }
 
         if (id == R.id.item7) {
-            Intent i = new Intent(ForumMessages.this, MainActivity.class);
+            Intent i = new Intent(ForumMessages.this, Preferences.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);

@@ -58,10 +58,10 @@ public class RegisterUser extends AppCompatActivity {
                 String s4 = e4.getText().toString();
                 String s5 = e5.getText().toString();
                 String s6 = e6.getText().toString();
-                String s7 = "0";
-                String s8 = "0";
-                String s9 = "0";
-                String s10 = "0";
+                String s7 = "About Me: ";
+                String s8 = "";
+                String s9 = "";
+                String s10 = "";
 
                 if (s1.equals("") || s2.equals("") || s3.equals("") || s4.equals("") || s5.equals("") || s6.equals("")) {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
@@ -69,9 +69,16 @@ public class RegisterUser extends AppCompatActivity {
                     if (s2.equals(s3)) {
 
                         Boolean insert = db.insert(s1, s2, User, s4, s5, s6, s7,s8,s9,s10);
-
                         Toast.makeText(getApplicationContext(), "Registrated Sucessfully", Toast.LENGTH_SHORT).show();
+                        Boolean checkemailPass = db.emailPass(s1,s2);
 
+                        if (checkemailPass==true){
+
+                            Intent j = new Intent(RegisterUser.this, Home.class);
+                            j.putExtra("email",s1);
+                            startActivity(j);
+
+                        }
 
                     } else {
 
