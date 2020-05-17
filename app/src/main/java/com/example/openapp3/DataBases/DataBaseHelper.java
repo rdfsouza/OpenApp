@@ -16,14 +16,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table Helpers(email text primary key, password text, Gender text, Age text, Location text, Name text ,AboutMe text, Type text,Education text, Occupation text)");
+        db.execSQL("Create table Helpers(email text primary key, password text, Gender text, Age text, Location text, Name text ,AboutMe text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists Helpers");
     }
-    public boolean insert(String email, String password, String Gender,String Age, String Location, String Name, String AboutMe,String Type,String Education,String Occupation) {
+    public boolean insert(String email, String password, String Gender,String Age, String Location, String Name, String AboutMe) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -34,9 +34,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put("Location", Location);
         contentValues.put("Name", Name);
         contentValues.put("AboutMe", AboutMe);
-        contentValues.put("Type", Type);
-        contentValues.put("Education", Education);
-        contentValues.put("Occupation", Occupation);
 
         long ins = db.insert("Helpers", null, contentValues);
         if (ins == 1) return false;
@@ -54,7 +51,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Cursor AllData(String Gender,String Age,String Location){
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from Helpers where Gender =? ", new String[] {Gender});
+        Cursor cursor = db.rawQuery("select * from Helpers where Gender =? or Age=? or Location=? ", new String[] {Gender,Age,Location});
 
         return cursor;
     }
@@ -65,27 +62,5 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
-
-
-    public Boolean Update(String email,String Gender,String Age, String Location, String Name, String AboutMe, String Education, String Occupation){
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("email", email);
-        contentValues.put("Gender", Gender);
-        contentValues.put("Age", Age);
-        contentValues.put("Location", Location);
-        contentValues.put("Name", Name);
-        contentValues.put("AboutMe", AboutMe);
-        contentValues.put("Education", Education);
-        contentValues.put("Occupation", Occupation);
-        db.update("Helpers" ,contentValues, "email = ?", new String[] {email} );
-
-        return true;
-
-
-    }
-
-
 
 }

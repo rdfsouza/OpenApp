@@ -1,4 +1,4 @@
-package com.example.openapp3.Helper;
+package com.example.openapp3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,10 +16,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.openapp3.Chats.ChatAdapter;
+import com.example.openapp3.Chats.ChatUser;
 import com.example.openapp3.Chats.ChatsStyle;
 import com.example.openapp3.DataBases.DataBaseMessages;
-import com.example.openapp3.MainActivity;
-import com.example.openapp3.R;
+import com.example.openapp3.Helper.HomeHelper;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -162,9 +162,8 @@ public class ChatUserHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ChatUserHelper.this, SettingsHelper.class);
+            Intent i = new Intent(ChatUserHelper.this, HomeHelper.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
 
@@ -179,6 +178,13 @@ public class ChatUserHelper extends AppCompatActivity {
             Intent i = new Intent(ChatUserHelper.this, AllForumHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
+            startActivity(i);
+        }
+
+        if (id == R.id.item6) {
+            Intent i = new Intent(ChatUserHelper.this, SettingsHelper.class);
+            i.putExtra("email", value);
+            i.putExtra("name", Name);
             startActivity(i);
         }
 

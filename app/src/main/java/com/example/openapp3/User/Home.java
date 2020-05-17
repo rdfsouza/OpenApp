@@ -67,12 +67,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             db = new DataBaseProfile(this);
             Cursor cursor = db.AllData(value);
             if (cursor.getCount()==0){
-
+                Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
             }else {
                 while(cursor.moveToNext()){
                     Name = cursor.getString(5).toString();
                     TextView displayTextView = (TextView) findViewById(R.id.myTexts);
-                    displayTextView.setText(Name);
+                    displayTextView.setText("Welcome " + Name);
                     GetPref();
                 }
             }
@@ -84,7 +84,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
             dbP = new DataBasePreference(this);
             Cursor cursor1 = dbP.AllData(value);
             if (cursor1.getCount()==0){
-
+                Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
             }else {
                 while(cursor1.moveToNext()){
 
@@ -107,12 +107,12 @@ public void getHelpers(){
     Cursor cursor2 = dbH.AllData(PrefG,PrefA,PrefL);
 
     if (cursor2.getCount()==0){
-
+        Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
 
     }else {
 
         while(cursor2.moveToNext()) {
-            eHelper.add(cursor2.getString(5));
+            eHelper.add(cursor2.getString(4));
             data.add(cursor2.getString(6));
 
         }
@@ -150,7 +150,6 @@ public void getHelpers(){
         if (id == R.id.item1) {
             Intent i = new Intent(Home.this, Home.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
 
@@ -167,6 +166,9 @@ public void getHelpers(){
             i.putExtra("Name", Name);
             startActivity(i);
         }
+
+
+
 
         if (id == R.id.item4) {
             Intent i = new Intent(Home.this, MainJornal.class);

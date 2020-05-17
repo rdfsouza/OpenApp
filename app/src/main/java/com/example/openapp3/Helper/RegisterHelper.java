@@ -13,7 +13,6 @@ import com.example.openapp3.DataBases.DataBaseHelper;
 import com.example.openapp3.DataBases.DataBaseProfile;
 import com.example.openapp3.MainActivity;
 import com.example.openapp3.R;
-import com.example.openapp3.User.RegisterUser;
 
 public class RegisterHelper extends AppCompatActivity {
 
@@ -69,23 +68,14 @@ public class RegisterHelper extends AppCompatActivity {
                 } else {
                     if (s2.equals(s3)) {
 
-                        Boolean insert = db.insert(s1, s2, s4, s5, s7,s6,s8,"HELPER","","");
-                        Boolean checkemailPass2 = db.emailPass(s1,s2);
-                        Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                        Boolean insert = db.insert(s1, s2, s4, s5, s6,s7,s8);
 
-                    if(checkemailPass2==true){
-
-                        Intent j = new Intent(RegisterHelper.this, SettingsHelper.class);
-                        j.putExtra("email",s1);
-                        startActivity(j);
-
-                    }
-
+                        Toast.makeText(getApplicationContext(), "Registrated Sucessfully", Toast.LENGTH_SHORT).show();
 
 
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "Password don't match", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Password dont match", Toast.LENGTH_SHORT).show();
 
 
                     }

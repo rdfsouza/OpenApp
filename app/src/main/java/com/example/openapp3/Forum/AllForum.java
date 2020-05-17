@@ -1,6 +1,5 @@
 package com.example.openapp3.Forum;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,21 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 
 import com.example.openapp3.DataBases.DataBaseForum;
-import com.example.openapp3.MainActivity;
-import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.R;
-import com.example.openapp3.User.Home;
-import com.example.openapp3.User.MainJornal;
-import com.example.openapp3.User.Preferences;
-import com.example.openapp3.User.Settigns;
 
 import java.util.ArrayList;
 
@@ -40,8 +31,8 @@ public class AllForum extends AppCompatActivity {
     DataBaseForum db;
 
 
-    ArrayList<AllForumStyle> AF = new ArrayList<>();
 
+    ArrayList<AllForumStyle> AF = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,10 +69,12 @@ public class AllForum extends AppCompatActivity {
 
 
     public void getMessages() {
+        Toast.makeText(getApplicationContext(), Type, Toast.LENGTH_SHORT).show();
 
         Cursor cursor = db. AllData();
 
         if (cursor.getCount() == 0) {
+            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
 
         } else {
 
@@ -128,72 +121,16 @@ public class AllForum extends AppCompatActivity {
 
         }
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sandwich, menu);
 
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        int id = item.getItemId();
 
-        if (id == R.id.item1) {
-            Intent i = new Intent(AllForum.this, Home.class);
-            i.putExtra("email", value);
-            i.putExtra("Name", Name);
-            startActivity(i);
-        }
 
-        if (id == R.id.item2) {
-            Intent i = new Intent(AllForum.this, AllMessages.class);
-            i.putExtra("email", value);
-            i.putExtra("Name", Name);
-            startActivity(i);
-        }
 
-        if (id == R.id.item3) {
-            Intent i = new Intent(AllForum.this, AllForum.class);
-            i.putExtra("email", value);
-            i.putExtra("Name", Name);
-            startActivity(i);
-        }
 
-        if (id == R.id.item4) {
-            Intent i = new Intent(AllForum.this, MainJornal.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
-        if (id == R.id.item5) {
-            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
 
-        }
 
-        if (id == R.id.item6) {
-            Intent i = new Intent(AllForum.this, Settigns.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item7) {
-            Intent i = new Intent(AllForum.this, Preferences.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item8) {
-            Intent i = new Intent(AllForum.this, MainActivity.class);
-            startActivity(i);
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,9 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBaseProfile;
-import com.example.openapp3.Forum.AllForum;
 import com.example.openapp3.MainActivity;
-import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.R;
 
 public class Settigns extends AppCompatActivity {
@@ -66,14 +63,14 @@ public class Settigns extends AppCompatActivity {
                 TextView displayTextView7 = (TextView) findViewById(R.id.AboutMe);
 
 
-                displayTextView.setText(Name);
-                displayTextView1.setText(Genre);
-                displayTextView2.setText(Age);
-                displayTextView3.setText("Account Type: " + AcountType);
+                displayTextView.setText("Name: " + Name);
+                displayTextView1.setText("Genre: " + Genre);
+                displayTextView2.setText("Age: " + Age);
+                displayTextView3.setText("AcountType: " + AcountType);
                 displayTextView4.setText("Ocupation: " + Ocupation);
                 displayTextView5.setText("Education: " + Education);
                 displayTextView6.setText("Location: " + Location);
-                displayTextView7.setText(AboutMe);
+                displayTextView7.setText("AboutMe: " + AboutMe);
             }
 
         }
@@ -84,13 +81,12 @@ public class Settigns extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(Settigns.this,EditSettings.class);
-                i.putExtra("email", value);
-                i.putExtra("name", Name);
+
+                i.putExtra("email",value);
                 startActivity(i);
             }
         });
     }
-
 
 
     @Override
@@ -108,23 +104,21 @@ public class Settigns extends AppCompatActivity {
         if (id == R.id.item1) {
             Intent i = new Intent(Settigns.this, Home.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
+
 
         if (id == R.id.item2) {
-            Intent i = new Intent(Settigns.this, AllMessages.class);
+            Intent i = new Intent(Settigns.this, Home.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
+            startActivity(i);
+        }
+        if (id == R.id.item3) {
+            Intent i = new Intent(Settigns.this, Home.class);
+            i.putExtra("email", value);
             startActivity(i);
         }
 
-        if (id == R.id.item3) {
-            Intent i = new Intent(Settigns.this, AllForum.class);
-            i.putExtra("email", value);
-            i.putExtra("Name", Name);
-            startActivity(i);
-        }
 
         if (id == R.id.item4) {
             Intent i = new Intent(Settigns.this, MainJornal.class);
@@ -139,10 +133,7 @@ public class Settigns extends AppCompatActivity {
         }
 
         if (id == R.id.item6) {
-            Intent i = new Intent(Settigns.this, Settigns.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
+            Toast.makeText(getApplicationContext(), "Already On this page", Toast.LENGTH_SHORT).show();
         }
 
         if (id == R.id.item7) {

@@ -14,9 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBaseJornal;
-import com.example.openapp3.Forum.AllForum;
 import com.example.openapp3.MainActivity;
-import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.R;
 
 public class MainJornal extends AppCompatActivity {
@@ -37,7 +35,7 @@ public class MainJornal extends AppCompatActivity {
         Name = bundle.getString("name");
 
         TextView displayTextView2 = (TextView) findViewById(R.id.myTexts);
-        displayTextView2.setText(Name);
+        displayTextView2.setText("Name: " + Name);
 
         db = new DataBaseJornal(this);
 
@@ -98,13 +96,13 @@ public class MainJornal extends AppCompatActivity {
 
 
         if (id == R.id.item2) {
-            Intent i = new Intent(MainJornal.this, AllMessages.class);
+            Intent i = new Intent(MainJornal.this, Home.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
         }
         if (id == R.id.item3) {
-            Intent i = new Intent(MainJornal.this, AllForum.class);
+            Intent i = new Intent(MainJornal.this, Home.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
@@ -112,10 +110,7 @@ public class MainJornal extends AppCompatActivity {
 
 
         if (id == R.id.item4) {
-            Intent i = new Intent(MainJornal.this, MainJornal.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
+            Toast.makeText(getApplicationContext(), "Already On this page", Toast.LENGTH_SHORT).show();
         }
 
         if (id == R.id.item5) {

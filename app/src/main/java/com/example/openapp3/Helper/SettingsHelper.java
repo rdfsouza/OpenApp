@@ -1,4 +1,4 @@
-package com.example.openapp3.Helper;
+package com.example.openapp3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBaseHelper;
-import com.example.openapp3.MainActivity;
-import com.example.openapp3.R;
+import com.example.openapp3.Forum.AllForum;
+import com.example.openapp3.Helper.HomeHelper;
+import com.example.openapp3.Messages.AllMessages;
+import com.example.openapp3.User.EditSettings;
+import com.example.openapp3.User.Home;
+import com.example.openapp3.User.MainJornal;
+import com.example.openapp3.User.Preferences;
 
 
 public class SettingsHelper extends AppCompatActivity {
@@ -49,9 +54,6 @@ public class SettingsHelper extends AppCompatActivity {
                 String Genre = cursor.getString(2);
                 String Location = cursor.getString(4);
                 String AboutMe = cursor.getString(6);
-                String Type = cursor.getString(7);
-                String Education = cursor.getString(8);
-                String Occupation = cursor.getString(9);
 
 
                 TextView displayTextView = (TextView) findViewById(R.id.myTexts);
@@ -59,18 +61,13 @@ public class SettingsHelper extends AppCompatActivity {
                 TextView displayTextView2 = (TextView) findViewById(R.id.NewGender);
                 TextView displayTextView6 = (TextView) findViewById(R.id.Location);
                 TextView displayTextView7 = (TextView) findViewById(R.id.AboutMe);
-                TextView displayTextView8 = (TextView) findViewById(R.id.AcountUser);
-                TextView displayTextView9 = (TextView) findViewById(R.id.Date);
-                TextView displayTextView10 = (TextView) findViewById(R.id.Jornal1);
 
-                displayTextView.setText(Name);
-                displayTextView1.setText(Genre);
-                displayTextView2.setText(Age);
+
+                displayTextView.setText("Name: " + Name);
+                displayTextView1.setText("Genre: " + Genre);
+                displayTextView2.setText("Age: " + Age);
                 displayTextView6.setText("Location: " + Location);
                 displayTextView7.setText("AboutMe: " + AboutMe);
-                displayTextView8.setText("Type: " + Type);
-                displayTextView9.setText("Education: " + Education);
-                displayTextView10.setText("Occupation: " + Occupation);
             }
 
         }
@@ -102,9 +99,8 @@ public class SettingsHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(SettingsHelper.this, SettingsHelper.class);
+            Intent i = new Intent(SettingsHelper.this, HomeHelper.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
 
@@ -122,6 +118,13 @@ public class SettingsHelper extends AppCompatActivity {
             startActivity(i);
         }
 
+        if (id == R.id.item6) {
+            Intent i = new Intent(SettingsHelper.this, SettingsHelper.class);
+            i.putExtra("email", value);
+            i.putExtra("name", Name);
+            startActivity(i);
+        }
+
 
         if (id == R.id.item8) {
             Intent i = new Intent(SettingsHelper.this, MainActivity.class);
@@ -130,6 +133,5 @@ public class SettingsHelper extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

@@ -81,6 +81,7 @@ public class ChatHelper extends AppCompatActivity {
 
     public void getMessages(){
 
+
         Cursor cursor = db.AllHelper(Name);
 
         if (cursor.getCount()==0){
@@ -155,7 +156,7 @@ public class ChatHelper extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.helper, menu);
+        getMenuInflater().inflate(R.menu.sandwich, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -166,26 +167,49 @@ public class ChatHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ChatHelper.this, SettingsHelper.class);
+            Intent i = new Intent(ChatHelper.this, MainActivity.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
+
 
         if (id == R.id.item2) {
-            Intent i = new Intent(ChatHelper.this, AllMessagesHelper.class);
+            Intent i = new Intent(ChatHelper.this, MainActivity.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
-
         if (id == R.id.item3) {
-            Intent i = new Intent(ChatHelper.this, AllForumHelper.class);
+            Intent i = new Intent(ChatHelper.this, MainActivity.class);
             i.putExtra("email", value);
-            i.putExtra("Name", Name);
             startActivity(i);
         }
 
+
+        if (id == R.id.item4) {
+            Intent i = new Intent(ChatHelper.this, MainActivity.class);
+            i.putExtra("email", value);
+            i.putExtra("name", Name);
+            startActivity(i);
+        }
+
+        if (id == R.id.item5) {
+            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
+
+        }
+
+        if (id == R.id.item6) {
+            Intent i = new Intent(ChatHelper.this, MainActivity.class);
+            i.putExtra("email", value);
+            i.putExtra("name", Name);
+            startActivity(i);
+        }
+
+        if (id == R.id.item7) {
+            Intent i = new Intent(ChatHelper.this, MainActivity.class);
+            i.putExtra("email", value);
+            i.putExtra("name", Name);
+            startActivity(i);
+        }
 
         if (id == R.id.item8) {
             Intent i = new Intent(ChatHelper.this, MainActivity.class);

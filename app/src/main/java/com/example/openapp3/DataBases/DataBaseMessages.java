@@ -46,19 +46,17 @@ public class DataBaseMessages extends SQLiteOpenHelper {
     }
 
 
-
-
     public Cursor AllData(String Name,String NameHelp){
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from Chats where NameUs =? or NameHelp=? ", new String[] {Name,NameHelp});
+        Cursor cursor = db.rawQuery("select * from Chats where NameUs =? and NameHelp=? ", new String[] {Name,NameHelp});
 
         return cursor;
     }
     public Cursor AllHelper(String Name){
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from Chats where NameUs=? group by NameHelp", new String[] {Name});
+        Cursor cursor = db.rawQuery("select * from Chats where NameHelp=? or NameUs=? and type =? group by NameHelp", new String[] {Name,Name,"USER"});
 
         return cursor;
     }
@@ -69,12 +67,6 @@ public class DataBaseMessages extends SQLiteOpenHelper {
 
         return cursor;
     }
-    public Cursor AllHelper2(String Name){
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from Chats where NameHelp=? group by NameHelp", new String[] {Name});
-
-        return cursor;
-    }
 
 }

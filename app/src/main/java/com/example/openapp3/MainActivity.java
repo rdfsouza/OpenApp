@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.example.openapp3.DataBases.DataBaseHelper;
 import com.example.openapp3.DataBases.DataBaseProfile;
 import com.example.openapp3.Helper.HomeHelper;
-import com.example.openapp3.Helper.SettingsHelper;
 import com.example.openapp3.User.Home;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,19 +41,19 @@ public class MainActivity extends AppCompatActivity {
             Boolean checkemailPass = db.emailPass(Email,Password);
             Boolean checkemailPass2 = dbh.emailPass(Email,Password);
             if (checkemailPass==true){
-
+                Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
                 Intent j = new Intent(MainActivity.this, Home.class);
                 j.putExtra("email",Email);
                 startActivity(j);
 
             }if(checkemailPass2==true){
-
-                Intent j = new Intent(MainActivity.this, SettingsHelper.class);
+                Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
+                Intent j = new Intent(MainActivity.this, HomeHelper.class);
                 j.putExtra("email",Email);
                 startActivity(j);
 
             }else {
-               // Toast.makeText(getApplicationContext(), "Wrong Email or Password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Wrong Email or Password", Toast.LENGTH_SHORT).show();
             }
 
 

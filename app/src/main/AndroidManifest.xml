@@ -9,13 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Helper.ChatUserHelper"></activity>
-        <activity android:name=".Helper.ForumMessageHelper" />
-        <activity android:name=".Helper.AllForumHelper" />
-        <activity android:name=".Helper.AllMessagesHelper" />
-        <activity android:name=".Helper.editSettingsHelper" />
-        <activity android:name=".Helper.SettingsHelper" />
-        <activity android:name=".Forum.ForumMessages" />
+        <activity android:name=".Forum.ForumMessages"></activity>
         <activity android:name=".Forum.NewForum" />
         <activity android:name=".Forum.AllForum" />
         <activity android:name=".Messages.AllMessages" />
@@ -30,14 +24,10 @@
         <activity android:name=".User.Settigns" />
         <activity android:name=".Helper.HomeHelper" />
         <activity android:name=".User.Home" />
-        <activity android:name=".Helper.RegisterHelper"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".User.RegisterUser"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".Register"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Helper.RegisterHelper" />
+        <activity android:name=".User.RegisterUser" />
+        <activity android:name=".Register" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
