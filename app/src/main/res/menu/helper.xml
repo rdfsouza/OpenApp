@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item1"
+        android:icon="@drawable/ic_home"
+        android:title="Profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_messages"
+        android:title="Messages"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/ic_forum"
+        android:title="Forum"
+        app:showAsAction="never" />
+
+    <item android:id ="@+id/item8"
+        android:icon="@drawable/ic_settings"
+        android:title="Signout"
+        app:showAsAction="never"
+        />
+
 
 </menu>

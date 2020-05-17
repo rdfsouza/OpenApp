@@ -1,4 +1,4 @@
-package com.example.openapp3;
+package com.example.openapp3.Helper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,9 +18,8 @@ import android.widget.Toast;
 import com.example.openapp3.Chats.ChatAdapter;
 import com.example.openapp3.Chats.ChatsStyle;
 import com.example.openapp3.DataBases.DataBaseForum;
-import com.example.openapp3.Forum.ForumMessages;
-import com.example.openapp3.Helper.HomeHelper;
-import com.example.openapp3.Messages.AllMessages;
+import com.example.openapp3.MainActivity;
+import com.example.openapp3.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -81,7 +80,6 @@ public class ForumMessageHelper extends AppCompatActivity {
         Cursor cursor = db.AllTopic(Type);
 
         if (cursor.getCount()==0){
-            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
 
         }else {
 
@@ -133,6 +131,7 @@ public class ForumMessageHelper extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.helper, menu);
@@ -146,8 +145,9 @@ public class ForumMessageHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ForumMessageHelper.this, HomeHelper.class);
+            Intent i = new Intent(ForumMessageHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
@@ -162,13 +162,6 @@ public class ForumMessageHelper extends AppCompatActivity {
             Intent i = new Intent(ForumMessageHelper.this, AllForumHelper.class);
             i.putExtra("email", value);
             i.putExtra("Name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item6) {
-            Intent i = new Intent(ForumMessageHelper.this, SettingsHelper.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
             startActivity(i);
         }
 

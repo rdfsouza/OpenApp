@@ -13,11 +13,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBaseMessages;
+import com.example.openapp3.Forum.AllForum;
 import com.example.openapp3.MainActivity;
+import com.example.openapp3.Messages.AllMessages;
 import com.example.openapp3.R;
+import com.example.openapp3.User.Home;
+import com.example.openapp3.User.MainJornal;
+import com.example.openapp3.User.Preferences;
+import com.example.openapp3.User.Settigns;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,12 +43,7 @@ DataBaseMessages db;
 String time;
 String Name;
 
-
-
-
-
 ArrayList<ChatsStyle> CS = new ArrayList<>();
-
 
 ImageButton b1;
 
@@ -66,8 +68,8 @@ ImageButton b1;
         e1 = (EditText) findViewById(R.id.ChatText);
         b1 =(ImageButton) findViewById(R.id.SendChat);
 
-
-        Toast.makeText(getApplicationContext(), eHelper, Toast.LENGTH_SHORT).show();
+        TextView displayTextView = (TextView) findViewById(R.id.ForumPage);
+        displayTextView.setText(eHelper);
 
 
         int a = calendar.get(Calendar.AM_PM);
@@ -90,7 +92,7 @@ ImageButton b1;
         Cursor cursor = db.AllMessages(Name,eHelper);
 
         if (cursor.getCount()==0){
-            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
+
 
         }else {
 
@@ -156,6 +158,7 @@ ImageButton b1;
         });
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.sandwich, menu);
@@ -169,26 +172,28 @@ ImageButton b1;
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ChatUser.this, Home.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
-
 
         if (id == R.id.item2) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ChatUser.this, AllMessages.class);
             i.putExtra("email", value);
-            startActivity(i);
-        }
-        if (id == R.id.item3) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
-            i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
+        if (id == R.id.item3) {
+            Intent i = new Intent(ChatUser.this, AllForum.class);
+            i.putExtra("email", value);
+            i.putExtra("Name", Name);
+            startActivity(i);
+        }
 
         if (id == R.id.item4) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ChatUser.this, MainJornal.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
@@ -200,14 +205,14 @@ ImageButton b1;
         }
 
         if (id == R.id.item6) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ChatUser.this, Settigns.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);
         }
 
         if (id == R.id.item7) {
-            Intent i = new Intent(ChatUser.this, MainActivity.class);
+            Intent i = new Intent(ChatUser.this, Preferences.class);
             i.putExtra("email", value);
             i.putExtra("name", Name);
             startActivity(i);

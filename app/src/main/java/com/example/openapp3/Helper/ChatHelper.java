@@ -38,10 +38,6 @@ public class ChatHelper extends AppCompatActivity {
     String time;
     String Name,NameUser;
 
-
-
-
-
     ArrayList<ChatsStyle> CS = new ArrayList<>();
 
 
@@ -65,6 +61,7 @@ public class ChatHelper extends AppCompatActivity {
         e1 = (EditText) findViewById(R.id.ChatText);
         b1 =(ImageButton) findViewById(R.id.SendChat);
 
+
         int a = calendar.get(Calendar.AM_PM);
         if(a == Calendar.AM) {
             time = calendar.get(Calendar.HOUR)+":"+calendar.get(Calendar.MINUTE)+"AM";
@@ -81,11 +78,10 @@ public class ChatHelper extends AppCompatActivity {
 
     public void getMessages(){
 
-
         Cursor cursor = db.AllHelper(Name);
 
         if (cursor.getCount()==0){
-            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
+
 
         }else {
 
@@ -156,7 +152,7 @@ public class ChatHelper extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sandwich, menu);
+        getMenuInflater().inflate(R.menu.helper, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -167,49 +163,26 @@ public class ChatHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(ChatHelper.this, MainActivity.class);
+            Intent i = new Intent(ChatHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
-
 
         if (id == R.id.item2) {
-            Intent i = new Intent(ChatHelper.this, MainActivity.class);
+            Intent i = new Intent(ChatHelper.this, AllMessagesHelper.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
+
         if (id == R.id.item3) {
-            Intent i = new Intent(ChatHelper.this, MainActivity.class);
+            Intent i = new Intent(ChatHelper.this, AllForumHelper.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
-
-        if (id == R.id.item4) {
-            Intent i = new Intent(ChatHelper.this, MainActivity.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item5) {
-            Toast.makeText(getApplicationContext(), "Page In Maintence", Toast.LENGTH_SHORT).show();
-
-        }
-
-        if (id == R.id.item6) {
-            Intent i = new Intent(ChatHelper.this, MainActivity.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
-
-        if (id == R.id.item7) {
-            Intent i = new Intent(ChatHelper.this, MainActivity.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
         if (id == R.id.item8) {
             Intent i = new Intent(ChatHelper.this, MainActivity.class);

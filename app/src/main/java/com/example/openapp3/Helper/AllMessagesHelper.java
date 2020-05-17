@@ -1,4 +1,4 @@
-package com.example.openapp3;
+package com.example.openapp3.Helper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.openapp3.Chats.ChatUser;
 import com.example.openapp3.DataBases.DataBaseMessages;
-import com.example.openapp3.Helper.HomeHelper;
-import com.example.openapp3.Messages.AllMessages;
+import com.example.openapp3.MainActivity;
 import com.example.openapp3.Messages.AllMessagesAdapter;
 import com.example.openapp3.Messages.AllMessagesStyle;
+import com.example.openapp3.R;
 
 import java.util.ArrayList;
 
@@ -58,11 +57,11 @@ public class AllMessagesHelper extends AppCompatActivity {
 
 
     public void getMessages() {
-        Toast.makeText(getApplicationContext(), Name, Toast.LENGTH_SHORT).show();
+
         Cursor cursor = db.AllHelper2(Name);
 
         if (cursor.getCount() == 0) {
-            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
+
 
         } else {
             while (cursor.moveToNext()) {
@@ -130,8 +129,9 @@ public class AllMessagesHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(AllMessagesHelper.this, HomeHelper.class);
+            Intent i = new Intent(AllMessagesHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
@@ -149,12 +149,6 @@ public class AllMessagesHelper extends AppCompatActivity {
             startActivity(i);
         }
 
-        if (id == R.id.item6) {
-            Intent i = new Intent(AllMessagesHelper.this, SettingsHelper.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
 
         if (id == R.id.item8) {
@@ -164,5 +158,4 @@ public class AllMessagesHelper extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

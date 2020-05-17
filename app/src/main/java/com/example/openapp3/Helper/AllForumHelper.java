@@ -1,4 +1,4 @@
-package com.example.openapp3;
+package com.example.openapp3.Helper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,14 +15,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.openapp3.DataBases.DataBaseForum;
-import com.example.openapp3.Forum.AllForum;
 import com.example.openapp3.Forum.AllForumAdapter;
 import com.example.openapp3.Forum.AllForumStyle;
-import com.example.openapp3.Forum.ForumMessages;
 import com.example.openapp3.Forum.NewForum;
-import com.example.openapp3.Helper.HomeHelper;
-import com.example.openapp3.Messages.AllMessages;
-import com.example.openapp3.User.Home;
+import com.example.openapp3.MainActivity;
+import com.example.openapp3.R;
 
 import java.util.ArrayList;
 
@@ -76,12 +73,12 @@ public class AllForumHelper extends AppCompatActivity {
 
 
     public void getMessages() {
-        Toast.makeText(getApplicationContext(), Type, Toast.LENGTH_SHORT).show();
+
 
         Cursor cursor = db. AllData();
 
         if (cursor.getCount() == 0) {
-            Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
+
 
         } else {
 
@@ -143,8 +140,9 @@ public class AllForumHelper extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Intent i = new Intent(AllForumHelper.this, HomeHelper.class);
+            Intent i = new Intent(AllForumHelper.this, SettingsHelper.class);
             i.putExtra("email", value);
+            i.putExtra("Name", Name);
             startActivity(i);
         }
 
@@ -162,12 +160,6 @@ public class AllForumHelper extends AppCompatActivity {
             startActivity(i);
         }
 
-        if (id == R.id.item6) {
-            Intent i = new Intent(AllForumHelper.this, SettingsHelper.class);
-            i.putExtra("email", value);
-            i.putExtra("name", Name);
-            startActivity(i);
-        }
 
 
         if (id == R.id.item8) {
@@ -177,6 +169,7 @@ public class AllForumHelper extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }
 
